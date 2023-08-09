@@ -1,18 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Sample from './components/sample-chart/sample'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import Sample from "./components/sample-chart/sample";
+import Barchart from "./components/sample-chart/Barchart";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-    <Sample />
-    {/* the rest of the chart goes here */}
+      <Sample /> 
+      <Barchart />
+      {/* the rest of the chart goes here */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
