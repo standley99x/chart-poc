@@ -24,7 +24,7 @@ const StackedAreaChart = () => {
       type: "value",
     },
     series: [
-        {
+      {
         name: "Point 1",
         type: "line",
         smooth: true,
@@ -32,6 +32,9 @@ const StackedAreaChart = () => {
           width: 0,
         },
         showSymbol: false,
+        itemStyle: {
+          color: "#ec6666",
+        },
         areaStyle: {
           opacity: 0.8,
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
@@ -58,6 +61,9 @@ const StackedAreaChart = () => {
           width: 0,
         },
         showSymbol: false,
+        itemStyle: {
+          color: "#41c9f0",
+        },
         areaStyle: {
           opacity: 0.8,
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
@@ -76,7 +82,6 @@ const StackedAreaChart = () => {
         },
         data: [350, 480, 240, 221, 102, 364, 40],
       },
-      
     ],
     tooltip: {
       trigger: "axis",
