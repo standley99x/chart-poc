@@ -8,6 +8,7 @@ import BarchartFocused from "./components/sample-chart/BarchartWithFocus";
 import AreaChart from "./components/sample-chart/AreaChart";
 import StackedAreaChart from "./components/sample-chart/StackedAreaChart";
 import LineChart from "./components/sample-chart/LineChart";
+import LineChartThreshold from "./components/sample-chart/LineChartWithThreshold";
 import Header from "./components/Header";
 import "bulma/css/bulma.css";
 
@@ -53,8 +54,8 @@ function App() {
               <LineChart />
             </div>
             <div className="column is-6">
-              <h3>Area Chart with Multiple Points</h3>
-              <StackedAreaChart />
+              <h3>Line Chart with Threshold</h3>
+              <LineChartThreshold />
             </div>
           </div>
         </section>
