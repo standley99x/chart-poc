@@ -6,6 +6,8 @@ import Sample from "./components/sample-chart/sample";
 import Barchart from "./components/sample-chart/Barchart";
 import BarchartFocused from "./components/sample-chart/BarchartWithFocus";
 import AreaChart from "./components/sample-chart/AreaChart";
+import StackedAreaChart from "./components/sample-chart/StackedAreaChart";
+import LineChart from "./components/sample-chart/LineChart";
 import Header from "./components/Header";
 import "bulma/css/bulma.css";
 
@@ -39,7 +41,20 @@ function App() {
               <AreaChart />
             </div>
             <div className="column is-6">
-              <Barchart />
+              <h3>Area Chart with Multiple Points</h3>
+              <StackedAreaChart />
+            </div>
+          </div>
+        </section>
+        <section className="section">
+          <div className="columns">
+            <div className="column is-6">
+              <h3>Line Chart</h3>
+              <LineChart />
+            </div>
+            <div className="column is-6">
+              <h3>Area Chart with Multiple Points</h3>
+              <StackedAreaChart />
             </div>
           </div>
         </section>
