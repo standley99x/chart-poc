@@ -29,15 +29,15 @@ const LineChartThreshold = () => {
   }
 
   const markLine = [];
-  const positions = ['500 ms','300 ms'];
+  const names = ['500 ms','300 ms'];
   const markLineLabel = [500, 300];
-  for (var i=0; i<positions.length; i++){
+  for (var i=0; i<names.length; i++){
     markLine.push({
-        name: positions[i],
+        name: names[i],
         yAxis: markLineLabel[i],
         label: {
             formatter: '{b}',
-            position: positions[i]
+            position: 'insideStartTop'
           }
     });
   }
@@ -65,7 +65,7 @@ const LineChartThreshold = () => {
           markLine: {
             data: markLine,
             label: {
-              distance: [20, 8]
+              distance: [5, 1]
             },
             symbol: "none",
           }
