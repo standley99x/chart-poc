@@ -2,12 +2,12 @@ import React, { useRef, useEffect } from "react";
 import ReactECharts from "echarts-for-react";
 import * as echarts from "echarts/lib/echarts.js";
 
-const LineChartThreshold = () => {
+const InvertLineChart = () => {
   const chartRef = useRef(null);
   const timestampArray = [];
   const intervalMinutes = 60;
 
-  for (let i = 0; i < 150; i++) {
+  for (let i = 0; i < 30; i++) {
     const date = new Date();
     const timestamp = new Date(date);
     timestamp.setUTCHours(
@@ -23,23 +23,9 @@ const LineChartThreshold = () => {
 
   const numberArray = [];
   const numberArray2 = [];
-  for (let i = 0; i < 150; i++) {
-    numberArray.push(getRandomNumber(400, 600));
-    numberArray2.push(getRandomNumber(200, 300));
-  }
-
-  const markLine = [];
-  const names = ['500 ms','300 ms'];
-  const markLineLabel = [500, 300];
-  for (var i=0; i<names.length; i++){
-    markLine.push({
-        name: names[i],
-        yAxis: markLineLabel[i],
-        label: {
-            formatter: '{b}',
-            position: 'insideStartTop'
-          }
-    });
+  for (let i = 0; i < 15; i++) {
+    numberArray.push(getRandomNumber(0.5, 4));
+    numberArray2.push(getRandomNumber(-1, -2));
   }
 
   const options = {
@@ -52,28 +38,21 @@ const LineChartThreshold = () => {
     },
     yAxis: {
       type: "value",
-      max: 1000
+      max: 6
     },
     series: [
       {
-        name: "Point 01",
+        name: "Writes",
         type: "line",
-        data: numberArray,
+        data: [1,1.8,1,1,1.2,1.3,1.2,1.3,1.2,3.8,1.3,1.4,1.2,2.6,2.7,1.3,1.4,1.3,1.2,1.3,1.4,1.2,2.6,2.7,1.3,1.4,1.3,1.2],
         itemStyle: {
             color: "#41c9f0",
           },
-          markLine: {
-            data: markLine,
-            label: {
-              distance: [5, 1]
-            },
-            symbol: "none",
-          }
       },
       {
-        name: "Point 02",
+        name: "Reads",
         type: "line",
-        data: numberArray2,
+        data: [-1,-1.8,-1,-1,-1.2,-1.3,-1.2,-1.3,-1.2,-3.8,-1.3,-1.4,-1.2,-2.6,-2.3,-1.3,-1.4,-1.3,-1.2,-1.3,-1.4,-1.2,-1.6,-1.7,-1.3,-1.4,-1.3,-1.2],
         itemStyle: {
             color: "#ec6666",
           },
@@ -97,4 +76,4 @@ const LineChartThreshold = () => {
   return <div ref={chartRef} style={{ width: "100%", height: "400px" }} />;
 };
 
-export default LineChartThreshold;
+export default InvertLineChart;
