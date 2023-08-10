@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import ReactECharts from "echarts-for-react";
 import * as echarts from "echarts/lib/echarts.js";
 
-const Barchart = () => {
+const BarchartFocused = () => {
   const chartRef = useRef(null);
 
   const options = {
@@ -32,13 +32,31 @@ const Barchart = () => {
     },
     series: [
       {
-        data: [450, 875, 9010, 4934, 11290, 830, 1320, 857, 9685, 2475, 1274],
+        data: [
+          120,
+          150,
+          80,
+          70,
+          {
+            value: 200,
+            itemStyle: {
+              color: "#41c9f0",
+            },
+          },
+          110,
+          130,
+          150,
+          80,
+          70,
+          110,
+          130,
+        ],
         type: "bar",
         smooth: true,
         itemStyle: {
           normal: {
             barBorderRadius: [5, 5, 0, 0], // Adjust the normal bar border radius
-            color: '#41c9f0',
+            color: "#495166",
           },
         },
       },
@@ -61,4 +79,4 @@ const Barchart = () => {
   return <div ref={chartRef} style={{ width: "100%", height: "400px" }} />;
 };
 
-export default Barchart;
+export default BarchartFocused;
