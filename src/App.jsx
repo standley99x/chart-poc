@@ -10,6 +10,7 @@ import StackedAreaChart from "./components/sample-chart/StackedAreaChart";
 import LineChart from "./components/sample-chart/LineChart";
 import LineChartThreshold from "./components/sample-chart/LineChartWithThreshold";
 import InvertLineChart from "./components/sample-chart/InvertedLineChart";
+import StackAreaChart from "./components/sample-chart/StackAreaChart";
 import Header from "./components/Header";
 import "bulma/css/bulma.css";
 
@@ -67,8 +68,8 @@ function App() {
               <InvertLineChart />
             </div>
             <div className="column is-6">
-              <h3>Line Chart with Threshold</h3>
-              <LineChartThreshold />
+              <h3>Stacked Area Chart</h3>
+              <StackAreaChart />
             </div>
           </div>
         </section>
