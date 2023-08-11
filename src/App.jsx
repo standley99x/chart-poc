@@ -1,8 +1,3 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import Sample from "./components/sample-chart/sample";
 import Barchart from "./components/sample-chart/Barchart";
 import BarchartFocused from "./components/sample-chart/BarchartWithFocus";
 import AreaChart from "./components/sample-chart/AreaChart";
@@ -13,6 +8,9 @@ import InvertLineChart from "./components/sample-chart/InvertedLineChart";
 import StackAreaChart from "./components/sample-chart/StackAreaChart";
 import Header from "./components/Header";
 import "bulma/css/bulma.css";
+import InvertedAreaChart from "./components/sample-chart/InvertedAreaChart";
+import StackedBarChart from "./components/sample-chart/StackedBarChart";
+import Heatmap from "./components/sample-chart/Heatmap";
 
 function App() {
   return (
@@ -71,6 +69,30 @@ function App() {
               <h3>Stacked Area Chart</h3>
               <StackAreaChart />
             </div>
+          </div>
+        </section>
+        <section className="section">
+          <div className="columns">
+            <div className="column is-6">
+              <h3>Stacked Bar Chart</h3>
+              <StackedBarChart />
+            </div>
+            <div className="column is-6">
+              <h3>Inverted Area Chart</h3>
+              <InvertedAreaChart />
+            </div>
+          </div>
+        </section>
+        <section className="section">
+          <div className="columns">
+            <div className="column is-6">
+              <h3>Alternative to Heatmap</h3>
+              <Heatmap />
+            </div>
+            {/* <div className="column is-6">
+              <h3>Inverted Area Chart</h3>
+              <InvertedAreaChart />
+            </div> */}
           </div>
         </section>
       </div>
