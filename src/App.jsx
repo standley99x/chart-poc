@@ -11,6 +11,7 @@ import "bulma/css/bulma.css";
 import InvertedAreaChart from "./components/sample-chart/InvertedAreaChart";
 import StackedBarChart from "./components/sample-chart/StackedBarChart";
 import Heatmap from "./components/sample-chart/Heatmap";
+import GoogleMapPolyline from "./components/sample-chart/GoogleMapPolyline";
 
 function App() {
   return (
@@ -86,13 +87,13 @@ function App() {
         <section className="section">
           <div className="columns">
             <div className="column is-6">
-              <h3>Alternative to Heatmap</h3>
+              <h3>Heatmap</h3>
               <Heatmap />
             </div>
-            {/* <div className="column is-6">
-              <h3>Inverted Area Chart</h3>
-              <InvertedAreaChart />
-            </div> */}
+            <div className="column is-6">
+              <h3>Google Map Polylines</h3>
+              <GoogleMapPolyline />
+            </div>
           </div>
         </section>
       </div>

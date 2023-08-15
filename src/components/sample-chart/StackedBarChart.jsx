@@ -1,97 +1,105 @@
 import ReactApexChart from "react-apexcharts";
+import React, { useRef, useEffect } from "react";
+import echarts from "echarts/lib/echarts.js";
 
 const StackedBarChart = () => {
+  const chartRef = useRef(null);
+
   var options = {
+    tooltip: {
+      trigger: "axis",
+      axisPointer: {
+        // Use axis to trigger tooltip
+        type: "shadow", // 'shadow' as default; can also be 'line' or 'shadow'
+      },
+    },
+    legend: {},
+    grid: {
+      left: "3%",
+      right: "4%",
+      bottom: "3%",
+      containLabel: true,
+    },
+    xAxis: {
+      type: "category",
+    },
+    yAxis: {
+      type: "value",
+      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    },
     series: [
       {
-        name: "Marine Sprite",
-        data: [44, 55, 41, 37, 22, 43, 21],
+        name: "Direct",
+        type: "bar",
+        stack: "total",
+        label: {
+          show: true,
+        },
+        emphasis: {
+          focus: "series",
+        },
+        data: [320, 302, 301, 334, 390, 330, 320],
       },
       {
-        name: "Striking Calf",
-        data: [53, 32, 33, 52, 13, 43, 32],
+        name: "Mail Ad",
+        type: "bar",
+        stack: "total",
+        label: {
+          show: true,
+        },
+        emphasis: {
+          focus: "series",
+        },
+        data: [120, 132, 101, 134, 90, 230, 210],
       },
       {
-        name: "Tank Picture",
-        data: [12, 17, 11, 9, 15, 11, 20],
+        name: "Affiliate Ad",
+        type: "bar",
+        stack: "total",
+        label: {
+          show: true,
+        },
+        emphasis: {
+          focus: "series",
+        },
+        data: [220, 182, 191, 234, 290, 330, 310],
       },
       {
-        name: "Bucket Slope",
-        data: [9, 7, 5, 8, 6, 9, 4],
+        name: "Video Ad",
+        type: "bar",
+        stack: "total",
+        label: {
+          show: true,
+        },
+        emphasis: {
+          focus: "series",
+        },
+        data: [150, 212, 201, 154, 190, 330, 410],
       },
       {
-        name: "Reborn Kid",
-        data: [25, 12, 19, 32, 25, 24, 10],
+        name: "Search Engine",
+        type: "bar",
+        stack: "total",
+        label: {
+          show: true,
+        },
+        emphasis: {
+          focus: "series",
+        },
+        data: [820, 832, 901, 934, 1290, 1330, 1320],
       },
     ],
-    chart: {
-      type: "bar",
-      height: 350,
-      stacked: true,
-      background: "#0d171e",
-    },
-    plotOptions: {
-      bar: {
-        horizontal: false,
-        dataLabels: {
-          total: {
-            enabled: true,
-            offsetX: 0,
-            style: {
-              fontSize: "13px",
-              fontWeight: 900,
-            },
-          },
-        },
-      },
-    },
-    stroke: {
-      width: 1,
-      colors: ["#fff"],
-    },
-    // title: {
-    //   text: "Fiction Books Sales",
-    // },
-    xaxis: {
-      categories: [2008, 2009, 2010, 2011, 2012, 2013, 2014],
-      labels: {
-        formatter: function (val) {
-          return val + "K";
-        },
-      },
-    },
-    yaxis: {
-      title: {
-        text: undefined,
-      },
-    },
-    tooltip: {
-      y: {
-        formatter: function (val) {
-          return val + "K";
-        },
-      },
-    },
-    fill: {
-      opacity: 1,
-    },
-    legend: {
-      position: "top",
-      horizontalAlign: "left",
-      offsetX: 40,
-    },
   };
+  useEffect(() => {
+    const chartInstance = echarts.init(chartRef.current, "dark");
+    chartInstance.setOption(options);
 
-  return (
-    <div id="chart">
-      <ReactApexChart
-        options={options}
-        series={options.series}
-        type="bar"
-        height={350}
-      />
-    </div>
-  );
+    // Cleanup: Dispose of the chart instance when the component is unmounted
+    return () => {
+      chartInstance.dispose();
+    };
+  }, []);
+  return <div ref={chartRef} style={{ width: "100%", height: "400px" }} />;
 };
 
 export default StackedBarChart;

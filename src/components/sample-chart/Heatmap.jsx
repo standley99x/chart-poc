@@ -1,58 +1,138 @@
 import { useState } from "react";
 import ReactApexChart from "react-apexcharts";
 
+const generateData = (count, options) => {
+  const data = [];
+  const xaxis = [
+    "00:00",
+    "01:00",
+    "02:00",
+    "03:00",
+    "04:00",
+    "05:00",
+    "06:00",
+    "07:00",
+    "08:00",
+    "09:00",
+    "10:00",
+    "11:00",
+    "12:00",
+    "13:00",
+    "14:00",
+    "15:00",
+    "16:00",
+    "17:00",
+    "18:00",
+    "19:00",
+    "20:00",
+    "21:00",
+    "22:00",
+    "23:00",
+  ];
+  for (let i = 0; i < count; i++) {
+    data.push({
+      x: xaxis[i],
+      y:
+        Math.floor(Math.random() * (options.max - options.min + 1)) +
+        options.min,
+    });
+  }
+  console.log("🚀 ~ file: Heatmap.jsx:6 ~ generateData ~ data:", data);
+  return data;
+};
+
 const Heatmap = () => {
   const [state] = useState({
     series: [
       {
-        type: "boxPlot",
-        data: [
-          {
-            x: "Jan 2015",
-            y: [54, 66, 69, 75, 88],
-          },
-          {
-            x: "Jan 2016",
-            y: [43, 65, 69, 76, 81],
-          },
-          {
-            x: "Jan 2017",
-            y: [31, 39, 45, 51, 59],
-          },
-          {
-            x: "Jan 2018",
-            y: [39, 46, 55, 65, 71],
-          },
-          {
-            x: "Jan 2019",
-            y: [29, 31, 35, 39, 44],
-          },
-          {
-            x: "Jan 2020",
-            y: [41, 49, 58, 61, 67],
-          },
-          {
-            x: "Jan 2021",
-            y: [54, 59, 66, 71, 88],
-          },
-        ],
+        name: "10 °C",
+        data: generateData(24, {
+          min: 0,
+          max: 0,
+        }),
+      },
+      {
+        name: "20 °C",
+        data: generateData(24, {
+          min: 0,
+          max: 0,
+        }),
+      },
+      {
+        name: "30 °C",
+        data: generateData(24, {
+          min: 1,
+          max: 10,
+        }),
+      },
+      {
+        name: "40 °C",
+        data: generateData(24, {
+          min: 11,
+          max: 20,
+        }),
+      },
+      {
+        name: "50 °C",
+        data: generateData(24, {
+          min: 30,
+          max: 80,
+        }),
+      },
+      {
+        name: "60 °C",
+        data: generateData(24, {
+          min: 40,
+          max: 90,
+        }),
+      },
+      {
+        name: "70 °C",
+        data: generateData(24, {
+          min: 30,
+          max: 80,
+        }),
+      },
+      {
+        name: "80 °C",
+        data: generateData(24, {
+          min: 11,
+          max: 20,
+        }),
+      },
+      {
+        name: "90 °C",
+        data: generateData(24, {
+          min: 0,
+          max: 7,
+        }),
+      },
+      {
+        name: "100 °C",
+        data: generateData(24, {
+          min: 0,
+          max: 0,
+        }),
       },
     ],
     options: {
       chart: {
-        type: "boxPlot",
         height: 350,
+        type: "heatmap",
       },
-      //   title: {
-      //     text: "Basic BoxPlot Chart",
-      //     align: "left",
-      //   },
-      plotOptions: {
-        boxPlot: {
-          colors: {
-            upper: "#5C4742",
-            lower: "#A5978B",
-          },
+      dataLabels: {
+        enabled: false,
+      },
+      colors: ["#008FFB"],
+      xaxis: {
+        type: "category",
+      },
+      title: {
+        text: "HeatMap Chart (Different color shades for each series)",
+      },
+      grid: {
+        padding: {
+          right: 20,
         },
       },
     },
@@ -61,7 +141,7 @@ const Heatmap = () => {
     <ReactApexChart
       options={state.options}
       series={state.series}
-      type="boxPlot"
+      type="heatmap"
       height={350}
     />
   );
